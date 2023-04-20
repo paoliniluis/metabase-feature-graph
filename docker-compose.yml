@@ -1,0 +1,17 @@
+version: "3"
+services:
+    neo4j:
+        image: neo4j:5.6.0
+        container_name: neo4j
+        ports: 
+            - 7474:7474
+            - 7687:7687
+        volumes:
+            - $PWD/data:/data
+        environment:
+            - NEO4J_AUTH=none
+        networks:
+            - neo_network
+networks:
+    neo_network:
+        driver: bridge
